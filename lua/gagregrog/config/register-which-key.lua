@@ -1,11 +1,11 @@
 local wk = require("which-key")
 
-wk.register({
-  n = { name = "Navigate" },
-  s = { name = "Split" },
-  w = { name = "Workspace" },
-  f = { name = "Fuzzy Find" },
-  t = { name = "Tab" },
-  e = { name = "Explorer" },
-  g = { name = "Git" },
-}, { prefix = "<leader>" })
+wk.add({
+  { "<leader>e", group = "Explorer" },
+  { "<leader>f", group = "Fuzzy Find" },
+  { "<leader>g", group = "Git" },
+  { "<leader>n", group = "Navigate" },
+  { "<leader>s", group = "Split" },
+  { "<leader>t", group = "Tab" },
+  { "<leader>w", group = "Workspace" },
+})
