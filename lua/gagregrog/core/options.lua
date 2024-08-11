@@ -19,7 +19,7 @@ opt.autoindent = true                   -- copy the indentation from the current
 
 
 -- line wrapping
-opt.wrap = false                        -- do not wrap long lines, rather continue to the right
+opt.wrap = true                        -- do not wrap long lines, rather continue to the right
 
 
 -- search settings
