@@ -1,8 +1,8 @@
 return {
   "hrsh7th/nvim-cmp",
-  event = "InsertEnter", -- load the plugin when first entering instert mode
+  event = "InsertEnter", -- load the plugin when first entering insert mode
   dependencies = {
-    "hrsh7th/cmp-buffer", -- autocomplete within the current buffer
+    "hrsh7th/cmp-buffer", -- autocomplete symbols within the current buffer
     "hrsh7th/cmp-path", -- autocomplete for filesystem paths
     {
       "L3MON4D3/LuaSnip", -- language snippets
@@ -35,14 +35,15 @@ return {
         ["<C-b>"] = cmp.mapping.scroll_docs(-4), -- scroll docs back
         ["<C-f>"] = cmp.mapping.scroll_docs(4), -- scroll docs forward
         ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-        ["C-c>"] = cmp.mapping.abort(), -- close completion window
+        ["C-x>"] = cmp.mapping.abort(), -- close completion window
         ["<CR>"] = cmp.mapping.confirm({ select = false }), -- select snippet 
       }),
       -- the order of the sources indicates the order they are sorted in
       sources = cmp.config.sources({ -- autocomplete sources
+        { name = "nvim_lsp" }, -- language servers provided by mason.nvim
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within the current buffer
-        { name = "path" }, -- file sysem paths
+        { name = "path" }, -- file system paths
       }),
       formatting = { -- configure pictograms in the autocomplete
         format = lspkind.cmp_format({

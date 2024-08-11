@@ -6,6 +6,7 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-tree/nvim-web-devicons",
     "nvim-treesitter/nvim-treesitter",
+    "folke/todo-comments.nvim",
   },
   config = function()
     local telescope = require("telescope")
@@ -40,6 +41,7 @@ return {
     keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Find help documentation by keyword" })
     keymap.set("n", "<leader>fc", "<cmd>Telescope commands<CR>", { desc = "Find vim commands to run" })
     keymap.set("n", "<leader>ft", "<cmd>Telescope treesitter<CR>", { desc = "List all function names and variables" })
+    keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
     
     keymap.set("n", "<leader>gf", "<cmd>Telescope git_files<CR>", { desc = "List git files" })
     keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "List git commits with diff" })
