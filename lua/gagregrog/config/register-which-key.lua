@@ -8,4 +8,6 @@ wk.add({
   { "<leader>s", group = "Split" },
   { "<leader>t", group = "Tab" },
   { "<leader>w", group = "Workspace" },
+  { "<leader>x", group = "Trouble" },
+  { "<leader>c", group = "Code" },
 })
