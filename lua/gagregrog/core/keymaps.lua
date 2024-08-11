@@ -2,7 +2,7 @@ local keymap = vim.keymap
 
 
 -- leader key
-vim.g.mapleader = "`"                                                                             -- set the leader key
+vim.g.mapleader = " "                                                                             -- set the leader key
 
 keymap.set("i", "<leader>-", "<ESC>", { desc = "Exit insert mode" })                              -- exit insert mode
 
