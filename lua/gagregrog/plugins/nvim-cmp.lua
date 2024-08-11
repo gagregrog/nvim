@@ -40,9 +40,10 @@ return {
       }),
       -- the order of the sources indicates the order they are sorted in
       sources = cmp.config.sources({ -- autocomplete sources
+        { name = "nvim_lsp" }, -- language servers provided by mason.nvim
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within the current buffer
-        { name = "path" }, -- file sysem paths
+        { name = "path" }, -- file system paths
       }),
       formatting = { -- configure pictograms in the autocomplete
         format = lspkind.cmp_format({

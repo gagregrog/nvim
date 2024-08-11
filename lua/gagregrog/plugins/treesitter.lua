@@ -19,26 +19,30 @@ return {
         enable = true, -- nvim-ts-autotag
       },
       ensure_installed = {
-        "go",
-        "json",
-        "javascript",
-        "typescript",
-        "tsx",
-        "yaml",
-        "html",
-        "css",
-        "markdown",
-        "markdown_inline",
-        "graphql",
+        "arduino",
         "bash",
-        "query", -- always install this
-        "lua", -- always install tIs
-        "vim", -- always install this
-        "dockerfile",
-        "gitignore",
-        "vimdoc", -- always install this
         "c", -- always install this
         "cpp",
+        "cmake",
+        "css",
+        "dockerfile",
+        "gitignore",
+        "go",
+        "graphql",
+        "html",
+        "javascript",
+        "json",
+        "lua", -- always install tIs
+        "markdown",
+        "markdown_inline",
+        "python",
+        "query", -- always install this
+        "sql",
+        "tsx",
+        "typescript",
+        "vim", -- always install this
+        "vimdoc", -- always install this
+        "yaml",
       },
       incremental_selection = {
         enable = true,
