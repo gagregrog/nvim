@@ -12,8 +12,8 @@ keymap.set("n", "<leader>-", ":nohl<CR>", { desc = "Clear search highlights" }) 
 
 
 -- split management
-keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })                     -- split vertically
-keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })                   -- split horizontally
+keymap.set("n", "<leader>s|", "<C-w>v", { desc = "Split window vertically" })                     -- split vertically
+keymap.set("n", "<leader>s-", "<C-w>s", { desc = "Split window horizontally" })                   -- split horizontally
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })                      -- make splits equal width/height
 keymap.set("n", "<leader>sc", "<cmd>close<CR>", { desc = "Close current split" })                 -- close the current slit
 
