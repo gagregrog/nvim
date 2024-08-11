@@ -19,6 +19,7 @@ return {
         enable = true, -- nvim-ts-autotag
       },
       ensure_installed = {
+        "go",
         "json",
         "javascript",
         "typescript",
