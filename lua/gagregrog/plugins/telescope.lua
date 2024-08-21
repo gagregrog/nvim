@@ -51,7 +51,7 @@ return {
 			"<cmd>Telescope treesitter<CR>",
 			{ desc = "List all function names and variables" }
 		)
-		keymap.set("n", "<leader>fk", "<cmd>Telescope keymap<CR>", { desc = "List all key bindings" })
+		keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "List all key bindings" })
 		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 		-- git keymaps
 		keymap.set("n", "<leader>gf", "<cmd>Telescope git_files<CR>", { desc = "List git files" })
