@@ -11,5 +11,5 @@ wk.add({
 	{ "<leader>x", group = "Trouble" },
 	{ "<leader>c", group = "Code" },
 	{ "<leader>m", group = "Mason" },
-	{ "<leader>l", group = "Lint" },
+	{ "<leader>l", group = "Lint and Git" },
 })
