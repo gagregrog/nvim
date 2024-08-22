@@ -9,7 +9,7 @@ return {
 			diagnostics = true,
 			buf_modified = true,
 			buf_modified_symbol = "●",
-			dir_levels = 1,
+			dir_levels = 5,
 			dim_inactive = {
 				enabled = false,
 				highlight = "WinbarNC",

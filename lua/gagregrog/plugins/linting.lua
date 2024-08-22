@@ -21,6 +21,14 @@ return {
 			end,
 		})
 
+		-- temporary hack to use pnpm lint fix until lsp lint fix is working
+		vim.keymap.set(
+			"n",
+			"<leader>lf",
+			":!pnpm exec eslint -c eslint.config.js % --fix<CR> | :e<CR>",
+			{ desc = "Fix current file" }
+		)
+
 		vim.keymap.set("n", "<leader>l", function()
 			lint.try_lint()
 		end, { desc = "Trigger linting for current file" })
