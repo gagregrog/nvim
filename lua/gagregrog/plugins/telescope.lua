@@ -7,6 +7,7 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"nvim-treesitter/nvim-treesitter",
 		"folke/todo-comments.nvim",
+		"nvim-telescope/telescope-media-files.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -26,9 +27,16 @@ return {
 					},
 				},
 			},
+			extensions = {
+				media_files = {
+					filetypes = { "png", "webp", "jpg", "jpeg", "pdf", "svg" },
+					find_cmd = "rg",
+				},
+			},
 		})
 
 		telescope.load_extension("fzf")
+		telescope.load_extension("media_files")
 
 		-- set keymaps
 		local keymap = vim.keymap
@@ -37,6 +45,7 @@ return {
 		keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "Find recent files (all directories)" })
 		keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Find within open buffers" })
 		keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<CR>", { desc = "Find string in cwd" })
+		keymap.set("n", "<leader>fm", "<cmd>Telescope media_files<CR>", { desc = "Find image files in cwd" })
 		keymap.set(
 			"n",
 			"<leader>fw",

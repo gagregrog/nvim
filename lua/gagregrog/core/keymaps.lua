@@ -6,7 +6,7 @@ vim.g.mapleader = " " -- set the leader key
 keymap.set("n", "<leader>r", ":source %<CR>", { desc = "Source the current lua file" }) -- reload the current lua page
 
 keymap.set("n", "<leader>-", ":nohl<CR>", { desc = "Clear search highlights" }) -- clear search highlights
-keymap.set("n", "<leader>b", ":e #<CR>", { desc = "Jump to the previous buffer" }) -- jump to the previous buffer
+keymap.set("n", "<leader>p", ":e #<CR>", { desc = "Jump to the previous buffer" }) -- jump to the previous buffer
 
 -- split management
 keymap.set("n", "<leader>s|", "<C-w>v", { desc = "Split window vertically" }) -- split vertically
