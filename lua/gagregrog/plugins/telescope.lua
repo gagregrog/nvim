@@ -24,6 +24,10 @@ return {
 				mappings = {
 					i = { -- keymappings while in insert mode
 						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+						["<C-d>"] = actions.delete_buffer,
+					},
+					n = {
+						["<C-d>"] = actions.delete_buffer,
 					},
 				},
 			},
