@@ -80,6 +80,17 @@ return {
 					capabilities = capabilities,
 				})
 			end,
+			["tsserver"] = function()
+				lspconfig["tsserver"].setup({
+					capabilities = capabilities,
+					filetypes = { "typescript", "typescriptreact" },
+					init_options = {
+						preferences = {
+							importModuleSpecifierPreference = "non-relative",
+						},
+					},
+				})
+			end,
 			["emmet_ls"] = function()
 				-- configure emmet language server
 				lspconfig["emmet_ls"].setup({
