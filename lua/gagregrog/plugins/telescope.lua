@@ -36,6 +36,12 @@ return {
 					filetypes = { "png", "webp", "jpg", "jpeg", "pdf", "svg" },
 					find_cmd = "rg",
 				},
+				fzf = {
+					fuzzy = true,
+					override_generic_sorter = true,
+					override_file_sorter = true,
+					case_mode = "smart_case",
+				},
 			},
 		})
 
@@ -46,10 +52,17 @@ return {
 		local keymap = vim.keymap
 
 		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find files in cwd" })
-		keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "Find recent files (all directories)" })
+		-- keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "Find recent files (all directories)" })
 		keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Find within open buffers" })
-		keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<CR>", { desc = "Find string in cwd" })
 		keymap.set("n", "<leader>fm", "<cmd>Telescope media_files<CR>", { desc = "Find image files in cwd" })
+		keymap.set("n", "<leader>fS", "<cmd>Telescope live_grep<CR>", { desc = "Find string in cwd" })
+		keymap.set("n", "<leader>fr", "<cmd>Telescope resume<CR>", { desc = "Resume the last search" })
+		keymap.set(
+			"n",
+			"<leader>fs",
+			"<cmd>Telescope current_buffer_fuzzy_find<CR>",
+			{ desc = "Find string in current buffer" }
+		)
 		keymap.set(
 			"n",
 			"<leader>fw",
