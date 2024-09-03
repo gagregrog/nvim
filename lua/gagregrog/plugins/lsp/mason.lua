@@ -19,24 +19,22 @@ return {
 			},
 		})
 
-		-- TODO: enable additional servers
 		mason_lspconfig.setup({
 			-- list of servers for mason to install
 			ensure_installed = {
-				-- "bashls",
+				"bashls",
 				-- "clangd",
-				-- "cmake",
+				"cmake",
 				"cssls",
-				-- "dockerls",
+				"dockerls",
 				"emmet_ls",
-				-- "gopls",
+				"gopls",
 				"graphql",
 				"html",
 				"lua_ls",
 				"pyright",
-				-- "sqlls",
 				"tsserver",
-				-- "vimls",
+				"vimls",
 			},
 		})
 
@@ -48,6 +46,7 @@ return {
 				"black", -- python formatter
 				"pylint", -- python linter
 				"eslint_d", -- js linter
+				"eslint",
 			},
 		})
 	end,
