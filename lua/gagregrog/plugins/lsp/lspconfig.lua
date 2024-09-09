@@ -79,8 +79,7 @@ return {
 					capabilities = capabilities,
 				})
 			end,
-			["tsserver"] = function()
-				-- tsserver name conflict -> map to ts_ls instead
+			["ts_ls"] = function()
 				lspconfig["ts_ls"].setup({
 					capabilities = capabilities,
 					filetypes = { "typescript", "typescriptreact" },
