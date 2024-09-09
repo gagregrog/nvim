@@ -10,8 +10,15 @@ return {
 		"nvim-telescope/telescope-media-files.nvim",
 	},
 	config = function()
+		local keymap = vim.keymap
 		local telescope = require("telescope")
+		local config = require("telescope.config")
 		local actions = require("telescope.actions")
+
+		local telescope_ignore_patterns = {
+			"shared/graphql/",
+		}
+		vim.g.telescope_ignore_enabled = true
 
 		telescope.setup({
 			pickers = {
@@ -20,6 +27,7 @@ return {
 				},
 			},
 			defaults = {
+				file_ignore_patterns = telescope_ignore_patterns,
 				path_display = { "smart" },
 				mappings = {
 					i = { -- keymappings while in insert mode
@@ -49,8 +57,13 @@ return {
 		telescope.load_extension("media_files")
 
 		-- set keymaps
-		local keymap = vim.keymap
-
+		vim.keymap.set("n", "<leader>fi", function()
+			vim.g.telescope_ignore_enabled = not vim.g.telescope_ignore_enabled
+			config.set_defaults({
+				file_ignore_patterns = vim.g.telescope_ignore_enabled and telescope_ignore_patterns or {},
+			})
+			print("Telescope ignore " .. (vim.g.telescope_ignore_enabled and "ENABLED!" or "disabled"))
+		end, { noremap = true, desc = "Toggle telescope ignore patterns" })
 		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find files in cwd" })
 		-- keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "Find recent files (all directories)" })
 		keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Find within open buffers" })
