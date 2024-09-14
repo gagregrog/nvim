@@ -8,12 +8,35 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		"folke/todo-comments.nvim",
 		"nvim-telescope/telescope-media-files.nvim",
+		"axkirillov/easypick.nvim",
 	},
 	config = function()
 		local keymap = vim.keymap
 		local telescope = require("telescope")
 		local config = require("telescope.config")
 		local actions = require("telescope.actions")
+		local easypick = require("easypick")
+
+		local get_default_branch = "git rev-parse --symbolic-full-name refs/remotes/origin/HEAD | sed 's!.*/!!'"
+		local base_branch = vim.fn.system(get_default_branch) or "main"
+
+		easypick.setup({
+			pickers = {
+				-- diff current branch with base_branch and show files that changed with respective diffs in preview
+				{
+					name = "changed_files",
+					command = "git diff --name-only $(git merge-base HEAD " .. base_branch .. " )",
+					previewer = easypick.previewers.branch_diff({ base_branch = base_branch }),
+				},
+
+				-- list files that have conflicts with diffs in preview
+				{
+					name = "conflicts",
+					command = "git diff --name-only --diff-filter=U --relative",
+					previewer = easypick.previewers.file_diff(),
+				},
+			},
+		})
 
 		local telescope_ignore_patterns = {
 			"shared/graphql/",
@@ -93,8 +116,15 @@ return {
 		keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "List all key bindings" })
 		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 		-- git keymaps
-		keymap.set("n", "<leader>gf", "<cmd>Telescope git_files<CR>", { desc = "List git files" })
-		keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "List git commits with diff" })
-		keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<CR>", { desc = "List current changes with add" })
+		keymap.set("n", "<leader>fgf", "<cmd>Telescope git_files<CR>", { desc = "List git files" })
+		keymap.set("n", "<leader>fgc", "<cmd>Telescope git_commits<CR>", { desc = "List git commits with diff" })
+		keymap.set("n", "<leader>fgs", "<cmd>Telescope git_status<CR>", { desc = "List current changes with add" })
+		keymap.set(
+			"n",
+			"<leader>fgp",
+			"<cmd>Easypick changed_files<CR>",
+			{ desc = "List changed files in current branch" }
+		)
+		keymap.set("n", "<leader>fgx", "<cmd>Easypick conflicts<CR>", { desc = "List files with git conflicts" })
 	end,
 }
