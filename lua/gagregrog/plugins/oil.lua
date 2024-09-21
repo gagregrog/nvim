@@ -18,7 +18,7 @@ return {
 				end,
 			},
 		})
-		vim.keymap.set("n", "<leader>-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+		vim.keymap.set("n", "_", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "OilEnter",
 			callback = vim.schedule_wrap(function(args)
