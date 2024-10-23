@@ -5,6 +5,9 @@ return {
 		local oil = require("oil")
 
 		oil.setup({
+			lsp_file_methods = {
+				enabled = false,
+			},
 			columns = {
 				"icon",
 				"size",
