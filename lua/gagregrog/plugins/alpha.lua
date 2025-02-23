@@ -20,7 +20,6 @@ return {
 		-- Set menu
 		dashboard.section.buttons.val = {
 			dashboard.button("e", "  > New File", "<cmd>ene<CR>"),
-			dashboard.button("-", "  > Open Yazi File Explorer", "<cmd>Yazi<CR>"),
 			dashboard.button("<space> -", "  > Open Oil File Explorer", "<cmd>Oil<CR>"),
 			dashboard.button("<space> ee", "  > Toggle file explorer", "<cmd>NvimTreeToggle<CR>"),
 			dashboard.button("<space> ff", "󰱼  > Find File", "<cmd>Telescope find_files<CR>"),
