@@ -3,8 +3,6 @@ local keymap = vim.keymap
 -- leader key
 vim.g.mapleader = " " -- set the leader key
 
-keymap.set("n", "<leader>r", ":source %<CR>", { desc = "Source the current file" })
-
 keymap.set("n", "<leader>-", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "<leader>p", ":e #<CR>", { desc = "Jump to the previous buffer" })
 keymap.set("n", "<leader> ", "<cmd>w<CR>", { desc = "Write the current buffer" })
