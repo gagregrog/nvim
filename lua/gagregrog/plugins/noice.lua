@@ -23,13 +23,17 @@ return {
 			routes = {
 				{
 					filter = {
-						event = "msg_show",
 						any = {
+							{ find = "Saved session: .*" },
+							{ find = "Restored session: .*" },
 							{ find = "%d+L, %d+B" },
 							{ find = "; after #%d+" },
 							{ find = "; before #%d+" },
 							{ find = "%d fewer lines" },
 							{ find = "%d more lines" },
+							{ find = "1 line less" },
+							{ find = "Mark not set" },
+							{ find = "%d+ lines yanked" },
 						},
 					},
 					opts = { skip = true },
