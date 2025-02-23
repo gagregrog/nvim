@@ -41,6 +41,8 @@ return {
 				gs.diffthis("~")
 			end, "Diff this ~")
 
+			map("n", "<leader>gv", gs.setqflist, "Set changes to quickfix list")
+
 			-- Text object
 			map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk")
 		end,

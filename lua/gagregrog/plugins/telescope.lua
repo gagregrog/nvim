@@ -91,11 +91,11 @@ return {
 		-- keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "Find recent files (all directories)" })
 		keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Find within open buffers" })
 		keymap.set("n", "<leader>fm", "<cmd>Telescope media_files<CR>", { desc = "Find image files in cwd" })
-		keymap.set("n", "<leader>fS", "<cmd>Telescope live_grep<CR>", { desc = "Find string in cwd" })
+		keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<CR>", { desc = "Find string in cwd" })
 		keymap.set("n", "<leader>fr", "<cmd>Telescope resume<CR>", { desc = "Resume the last search" })
 		keymap.set(
 			"n",
-			"<leader>fs",
+			"<leader>fS",
 			"<cmd>Telescope current_buffer_fuzzy_find<CR>",
 			{ desc = "Find string in current buffer" }
 		)
@@ -115,16 +115,5 @@ return {
 		)
 		keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "List all key bindings" })
 		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
-		-- git keymaps
-		keymap.set("n", "<leader>fgf", "<cmd>Telescope git_files<CR>", { desc = "List git files" })
-		keymap.set("n", "<leader>fgc", "<cmd>Telescope git_commits<CR>", { desc = "List git commits with diff" })
-		keymap.set("n", "<leader>fgs", "<cmd>Telescope git_status<CR>", { desc = "List current changes with add" })
-		keymap.set(
-			"n",
-			"<leader>fgp",
-			"<cmd>Easypick changed_files<CR>",
-			{ desc = "List changed files in current branch" }
-		)
-		keymap.set("n", "<leader>fgx", "<cmd>Easypick conflicts<CR>", { desc = "List files with git conflicts" })
 	end,
 }

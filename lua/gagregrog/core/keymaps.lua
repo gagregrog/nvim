@@ -7,7 +7,7 @@ keymap.set("n", "<leader>-", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "<leader>p", ":e #<CR>", { desc = "Jump to the previous buffer" })
 keymap.set("n", "<leader> ", "<cmd>w<CR>", { desc = "Write the current buffer" })
 keymap.set("n", "<leader>W", "<cmd>noa w<CR>", { desc = "Write the current buffer without formatting" })
-keymap.set("n", "QQ", ":q<CR>", { desc = "Close the current buffer" })
+keymap.set("n", "QQ", ":q<CR>", { noremap = true, silent = true, desc = "Close the current buffer" })
 keymap.set("n", "yp", "yyp", { desc = "Duplicate line" })
 
 -- split management
