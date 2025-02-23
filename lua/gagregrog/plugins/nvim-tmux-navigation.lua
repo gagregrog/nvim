@@ -7,7 +7,12 @@ return {
 			disable_when_zoomed = true,
 		})
 
-		keymap.set("n", "<C-Space>", vtm.NvimTmuxNavigateNext, { desc = "Navigate to the next split" })
+		keymap.set(
+			"n",
+			"<C-i>",
+			vtm.NvimTmuxNavigateNext,
+			{ desc = "Navigate to the next split", noremap = true, silent = true }
+		)
 		keymap.set("n", "<C-k>", vtm.NvimTmuxNavigateUp, { desc = "Navigate up from current split" })
 		keymap.set("n", "<C-j>", vtm.NvimTmuxNavigateDown, { desc = "Navigate down from current split" })
 		keymap.set("n", "<C-h>", vtm.NvimTmuxNavigateLeft, { desc = "Navigate left from current split" })
