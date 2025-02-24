@@ -43,3 +43,7 @@ opt.splitbelow = true -- split horizontal windows to the bottom (:split)
 
 -- search/substitution
 opt.inccommand = "split" -- shows matching searches in a preview window
+
+-- needed for avante.nvim
+-- views can only be fully collapsed with the global statusline
+opt.laststatus = 3
