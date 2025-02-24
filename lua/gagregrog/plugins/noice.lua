@@ -34,6 +34,8 @@ return {
 							{ find = "1 line less" },
 							{ find = "Mark not set" },
 							{ find = "%d+ lines yanked" },
+							{ find = "%d+ lines >ed" },
+							{ find = "%d+ lines <ed" },
 						},
 					},
 					opts = { skip = true },
