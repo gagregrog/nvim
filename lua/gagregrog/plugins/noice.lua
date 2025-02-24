@@ -36,6 +36,7 @@ return {
 							{ find = "%d+ lines yanked" },
 							{ find = "%d+ lines >ed" },
 							{ find = "%d+ lines <ed" },
+							{ find = "%d+ lines filtered" },
 						},
 					},
 					opts = { skip = true },
