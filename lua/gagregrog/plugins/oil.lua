@@ -5,6 +5,13 @@ return {
 		local oil = require("oil")
 
 		oil.setup({
+			skip_confirm_for_simple_edits = true,
+			git = {
+				-- function(src_path, dest_path)
+				mv = function()
+					return true
+				end,
+			},
 			lsp_file_methods = {
 				enabled = false,
 			},
