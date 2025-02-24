@@ -22,7 +22,13 @@ return {
 			return res.code == 0 and "main" or "master"
 		end
 		-- https://github.com/sindrets/diffview.nvim/blob/main/USAGE.md
-		map("n", "<leader>gP", "<cmd>DiffviewOpen origin/HEAD...HEAD --imply-local<CR>", "Review PR")
+		map("n", "<leader>gP", "<cmd>DiffviewOpen origin/HEAD...HEAD<CR>", "Review PR")
+		map(
+			"n",
+			"<leader>gC",
+			"<cmd>DiffviewFileHistory --range=origin/HEAD...HEAD --right-only --no-merges --imply-local<CR>",
+			"Review Commits"
+		)
 		map("n", "<leader>gh", "<cmd>DiffviewFileHistory<CR>", "Repo history")
 		map("n", "<leader>gf", "<cmd>DiffviewFileHistory --follow %<CR>", "Git File history")
 		map("v", "<leader>gh", "<Esc><cmd>'<,'>DiffviewFileHistory --follow<CR>", "Range history")
@@ -33,6 +39,7 @@ return {
 		vim.keymap.set("n", ",hM", function()
 			vim.cmd("DiffviewOpen HEAD..origin/" .. get_default_branch_name())
 		end, { desc = "Diff against origin/main" })
+		map("n", "<leader>gx", "<cmd>DiffviewFileHistory -g --range=stash<CR>", "View stashes")
 
 		-- telescope git commands
 		map("n", "<leader>fgb", "<cmd>Telescope git_branches<CR>", "List git branches")
