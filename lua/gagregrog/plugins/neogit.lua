@@ -21,7 +21,8 @@ return {
 			local res = vim.system({ "git", "rev-parse", "--verify", "main" }, { capture_output = true }):wait()
 			return res.code == 0 and "main" or "master"
 		end
-		map("n", "<leader>gP", "<cmd>DiffviewOpen origin/main..HEAD<CR>", "Review PR")
+		-- https://github.com/sindrets/diffview.nvim/blob/main/USAGE.md
+		map("n", "<leader>gP", "<cmd>DiffviewOpen origin/HEAD...HEAD --imply-local<CR>", "Review PR")
 		map("n", "<leader>gh", "<cmd>DiffviewFileHistory<CR>", "Repo history")
 		map("n", "<leader>gf", "<cmd>DiffviewFileHistory --follow %<CR>", "Git File history")
 		map("v", "<leader>gh", "<Esc><cmd>'<,'>DiffviewFileHistory --follow<CR>", "Range history")
@@ -42,6 +43,9 @@ return {
 		map("n", "<leader>fgx", "<cmd>Easypick conflicts<CR>", "List files with git conflicts")
 
 		require("diffview").setup({
+			default_args = {
+				DiffviewOpen = { "--imply-local" }, -- always enable lsp support on right/bottom split
+			},
 			view = {
 				-- For more info, see |diffview-config-view.x.layout|.
 				default = {
