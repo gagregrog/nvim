@@ -26,6 +26,7 @@ return {
 				"cmake",
 				"css",
 				"dockerfile",
+				"diff",
 				"gitignore",
 				"go",
 				"graphql",
