@@ -13,7 +13,7 @@ return {
 				end,
 			},
 			lsp_file_methods = {
-				enabled = false,
+				enabled = true,
 			},
 			columns = {
 				"icon",
