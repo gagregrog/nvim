@@ -6,7 +6,14 @@ return {
 		"nvim-telescope/telescope.nvim",
 	},
 	config = function()
-		require("neogit").setup({})
+		require("neogit").setup({
+			mappings = {
+				status = {
+					["Q"] = false, -- Remove the default mapping that conflicts with QQ
+					["G"] = "Command", -- Add new mapping for git command input
+				},
+			},
+		})
 		local function map(mode, l, r, desc)
 			vim.keymap.set(mode, l, r, { silent = true, noremap = true, desc = desc })
 		end
