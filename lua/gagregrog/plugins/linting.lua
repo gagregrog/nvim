@@ -3,7 +3,7 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local lint = require("lint")
-		local map = require("gagregrog.core.keymap")
+		local keymap = require("gagregrog.core.keymap")
 
 		lint.linters_by_ft = {
 			javascript = { "eslint_d" },
@@ -22,13 +22,13 @@ return {
 			end,
 		})
 
-		map.nmap(
+		keymap.nmap(
 			"<leader>lf",
 			"mF:%!eslint_d --stdin --fix-to-stdout --stdin-filename %<CR>`F | :w<CR>",
 			"Fix current file"
 		)
 
-		map.nmap("<leader>l", function()
+		keymap.nmap("<leader>l", function()
 			lint.try_lint()
 		end, "Trigger linting for current file")
 	end,

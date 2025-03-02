@@ -1,7 +1,7 @@
 return {
 	"alexghergh/nvim-tmux-navigation", -- tmux & split window navigation
 	config = function()
-		local map = require("gagregrog.core.keymap")
+		local keymap = require("gagregrog.core.keymap")
 		local vtm = require("nvim-tmux-navigation")
 		vtm.setup({
 			disable_when_zoomed = true,
@@ -83,17 +83,17 @@ return {
 			end
 		end
 
-		map.nmap("<M-e>", vtm.NvimTmuxNavigateNext, "Navigate to the next split")
-		map.nmap("<C-k>", function()
+		keymap.nmap("<M-e>", vtm.NvimTmuxNavigateNext, "Navigate to the next split")
+		keymap.nmap("<C-k>", function()
 			wrap_navigate("up")
 		end, "Navigate up from current split")
-		map.nmap("<C-j>", function()
+		keymap.nmap("<C-j>", function()
 			wrap_navigate("down")
 		end, "Navigate down from current split")
-		map.nmap("<C-h>", function()
+		keymap.nmap("<C-h>", function()
 			wrap_navigate("left")
 		end, "Navigate left from current split")
-		map.nmap("<C-l>", function()
+		keymap.nmap("<C-l>", function()
 			wrap_navigate("right")
 		end, "Navigate right from current split")
 	end,

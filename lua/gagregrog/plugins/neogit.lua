@@ -14,11 +14,11 @@ return {
 				},
 			},
 		})
-		local map = require("gagregrog.core.keymap")
+		local keymap = require("gagregrog.core.keymap")
 
 		-- Neogit commands
-		map.nmap("<leader>gg", "<cmd>Neogit<CR>", "Open Neogit")
-		map.nmap("<leader>gl", "<cmd>NeogitLogCurrent<CR>", "Neogit History")
+		keymap.nmap("<leader>gg", "<cmd>Neogit<CR>", "Open Neogit")
+		keymap.nmap("<leader>gl", "<cmd>NeogitLogCurrent<CR>", "Neogit History")
 
 		-- DiffView commands
 		-- Good tips found here: https://www.naseraleisa.com/posts/diff
@@ -27,31 +27,31 @@ return {
 			return res.code == 0 and "main" or "master"
 		end
 		-- https://github.com/sindrets/diffview.nvim/blob/main/USAGE.md
-		map.nmap("<leader>gP", "<cmd>DiffviewOpen origin/HEAD...HEAD<CR>", "Review PR")
-		map.nmap(
+		keymap.nmap("<leader>gP", "<cmd>DiffviewOpen origin/HEAD...HEAD<CR>", "Review PR")
+		keymap.nmap(
 			"<leader>gC",
 			"<cmd>DiffviewFileHistory --range=origin/HEAD...HEAD --right-only --no-merges --imply-local<CR>",
 			"Review Commits"
 		)
-		map.nmap("<leader>gh", "<cmd>DiffviewFileHistory<CR>", "Repo history")
-		map.nmap("<leader>gf", "<cmd>DiffviewFileHistory --follow %<CR>", "Git File history")
-		map.nmap("<leader>gh", "<Esc><cmd>'<,'>DiffviewFileHistory --follow<CR>", "Range history")
-		map.nmap("<leader>gL", "<cmd>.DiffviewFileHistory --follow<CR>", "Line history")
-		map.nmap("<leader>gm", function()
+		keymap.nmap("<leader>gh", "<cmd>DiffviewFileHistory<CR>", "Repo history")
+		keymap.nmap("<leader>gf", "<cmd>DiffviewFileHistory --follow %<CR>", "Git File history")
+		keymap.nmap("<leader>gh", "<Esc><cmd>'<,'>DiffviewFileHistory --follow<CR>", "Range history")
+		keymap.nmap("<leader>gL", "<cmd>.DiffviewFileHistory --follow<CR>", "Line history")
+		keymap.nmap("<leader>gm", function()
 			vim.cmd("DiffviewOpen " .. get_default_branch_name())
 		end, "Diff against main")
-		map.nmap("<leader>gM", function()
+		keymap.nmap("<leader>gM", function()
 			vim.cmd("DiffviewOpen HEAD..origin/" .. get_default_branch_name())
 		end, "Diff against origin/main")
-		map.nmap("<leader>gx", "<cmd>DiffviewFileHistory -g --range=stash<CR>", "View stashes")
+		keymap.nmap("<leader>gx", "<cmd>DiffviewFileHistory -g --range=stash<CR>", "View stashes")
 
 		-- telescope git commands
-		map.nmap("<leader>fgb", "<cmd>Telescope git_branches<CR>", "List git branches")
-		map.nmap("<leader>fgf", "<cmd>Telescope git_files<CR>", "List git files")
-		map.nmap("<leader>fgc", "<cmd>Telescope git_commits<CR>", "List git commits with diff")
-		map.nmap("<leader>fgs", "<cmd>Telescope git_status<CR>", "List current changes with add")
-		map.nmap("<leader>fgp", "<cmd>Easypick changed_files<CR>", "List changed files in current branch")
-		map.nmap("<leader>fgx", "<cmd>Easypick conflicts<CR>", "List files with git conflicts")
+		keymap.nmap("<leader>fgb", "<cmd>Telescope git_branches<CR>", "List git branches")
+		keymap.nmap("<leader>fgf", "<cmd>Telescope git_files<CR>", "List git files")
+		keymap.nmap("<leader>fgc", "<cmd>Telescope git_commits<CR>", "List git commits with diff")
+		keymap.nmap("<leader>fgs", "<cmd>Telescope git_status<CR>", "List current changes with add")
+		keymap.nmap("<leader>fgp", "<cmd>Easypick changed_files<CR>", "List changed files in current branch")
+		keymap.nmap("<leader>fgx", "<cmd>Easypick conflicts<CR>", "List files with git conflicts")
 
 		require("diffview").setup({
 			default_args = {

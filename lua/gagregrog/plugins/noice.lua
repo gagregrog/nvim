@@ -1,9 +1,9 @@
 return {
 	"folke/noice.nvim",
 	config = function()
-		local map = require("gagregrog.core.keymap")
+		local keymap = require("gagregrog.core.keymap")
 
-		map.nmap("<leader>cm", ":Noice dismiss<CR>", "Clear all messages")
+		keymap.nmap("<leader>cm", ":Noice dismiss<CR>", "Clear all messages")
 		-- see additional configuration in lua/gagregrog/plugins/lualine.lua
 		require("noice").setup({
 			lsp = {

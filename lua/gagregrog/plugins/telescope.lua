@@ -14,7 +14,7 @@ return {
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
 		local easypick = require("easypick")
-		local map = require("gagregrog.core.keymap")
+		local keymap = require("gagregrog.core.keymap")
 
 		local get_default_branch = "git rev-parse --symbolic-full-name refs/remotes/origin/HEAD | sed 's!.*/!!'"
 		local base_branch = vim.fn.system(get_default_branch) or "main"
@@ -73,18 +73,18 @@ return {
 		telescope.load_extension("media_files")
 
 		-- set keymaps
-		map.nmap("<leader>ff", "<cmd>Telescope find_files<CR>", "Find files in cwd")
-		-- map.nmap("<leader>fr", "<cmd>Telescope oldfiles<CR>", "Find recent files (all directories)")
-		map.nmap("<leader>fb", "<cmd>Telescope buffers<CR>", "Find within open buffers")
-		map.nmap("<leader>fm", "<cmd>Telescope media_files<CR>", "Find image files in cwd")
-		map.nmap("<leader>fs", "<cmd>Telescope live_grep<CR>", "Find string in cwd")
-		map.nmap("<leader>fr", "<cmd>Telescope resume<CR>", "Resume the last search")
-		map.nmap("<leader>fS", "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find string in current buffer")
-		map.nmap("<leader>fw", "<cmd>Telescope grep_string<CR>", "Find word under current cursor position")
-		map.nmap("<leader>fh", "<cmd>Telescope help_tags<CR>", "Find help documentation by keyword")
-		map.nmap("<leader>fc", "<cmd>Telescope commands<CR>", "Find vim commands to run")
-		map.nmap("<leader>fv", "<cmd>Telescope treesitter<CR>", "List all function names and variables")
-		map.nmap("<leader>fk", "<cmd>Telescope keymaps<CR>", "List all key bindings")
-		map.nmap("<leader>ft", "<cmd>TodoTelescope<cr>", "Find todos")
+		keymap.nmap("<leader>ff", "<cmd>Telescope find_files<CR>", "Find files in cwd")
+		-- keymap.nmap("<leader>fr", "<cmd>Telescope oldfiles<CR>", "Find recent files (all directories)")
+		keymap.nmap("<leader>fb", "<cmd>Telescope buffers<CR>", "Find within open buffers")
+		keymap.nmap("<leader>fm", "<cmd>Telescope media_files<CR>", "Find image files in cwd")
+		keymap.nmap("<leader>fs", "<cmd>Telescope live_grep<CR>", "Find string in cwd")
+		keymap.nmap("<leader>fr", "<cmd>Telescope resume<CR>", "Resume the last search")
+		keymap.nmap("<leader>fS", "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find string in current buffer")
+		keymap.nmap("<leader>fw", "<cmd>Telescope grep_string<CR>", "Find word under current cursor position")
+		keymap.nmap("<leader>fh", "<cmd>Telescope help_tags<CR>", "Find help documentation by keyword")
+		keymap.nmap("<leader>fc", "<cmd>Telescope commands<CR>", "Find vim commands to run")
+		keymap.nmap("<leader>fv", "<cmd>Telescope treesitter<CR>", "List all function names and variables")
+		keymap.nmap("<leader>fk", "<cmd>Telescope keymaps<CR>", "List all key bindings")
+		keymap.nmap("<leader>ft", "<cmd>TodoTelescope<cr>", "Find todos")
 	end,
 }

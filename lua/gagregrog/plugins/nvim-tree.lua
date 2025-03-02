@@ -3,7 +3,7 @@ return {
 	dependencies = "nvim-tree/nvim-web-devicons",
 	config = function()
 		local nvimtree = require("nvim-tree")
-		local map = require("gagregrog.core.keymap")
+		local keymap = require("gagregrog.core.keymap")
 
 		-- recommended settings from nvim-tree documentation
 		vim.g.loaded_netrw = 1
@@ -49,15 +49,15 @@ return {
 		-- set keymaps
 
 		-- this will open up the explorer on the left side in its previous state
-		map.nmap("<leader>ee", "<cmd>NvimTreeToggle<CR>", "Toggle file explorer")
+		keymap.nmap("<leader>ee", "<cmd>NvimTreeToggle<CR>", "Toggle file explorer")
 
 		-- open up the explorer to the current file location
-		map.nmap("<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", "Toggle file explorer on current file")
+		keymap.nmap("<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", "Toggle file explorer on current file")
 
 		-- collapse all open folders in the file explorer
-		map.nmap("<leader>ec", "<cmd>NvimTreeCollapse<CR>", "Collapse entire file explorer")
+		keymap.nmap("<leader>ec", "<cmd>NvimTreeCollapse<CR>", "Collapse entire file explorer")
 
 		-- why need refresh?
-		map.nmap("<leader>er", "<cmd>NvimTreeRefresh<CR>", "Refresh file explorer")
+		keymap.nmap("<leader>er", "<cmd>NvimTreeRefresh<CR>", "Refresh file explorer")
 	end,
 }

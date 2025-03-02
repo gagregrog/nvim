@@ -6,7 +6,7 @@ return {
 	},
 	config = function()
 		local substitute = require("substitute")
-		local map = require("gagregrog.core.keymap")
+		local keymap = require("gagregrog.core.keymap")
 
 		substitute.setup({
 			preserve_cursor_position = false,
@@ -19,9 +19,9 @@ return {
 		})
 
 		-- set keymaps
-		map.nmap("s", substitute.operator, "Substitute with motion")
-		map.nmap("ss", substitute.line, "Substitute line")
-		map.nmap("S", substitute.eol, "Substitute to end of line")
-		map.xmap("s", substitute.visual, "Substitute in visual mode")
+		keymap.nmap("s", substitute.operator, "Substitute with motion")
+		keymap.nmap("ss", substitute.line, "Substitute line")
+		keymap.nmap("S", substitute.eol, "Substitute to end of line")
+		keymap.xmap("s", substitute.visual, "Substitute in visual mode")
 	end,
 }
