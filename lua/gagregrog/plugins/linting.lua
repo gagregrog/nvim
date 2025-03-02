@@ -3,6 +3,7 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local lint = require("lint")
+		local map = require("gagregrog/core/map")
 
 		lint.linters_by_ft = {
 			javascript = { "eslint_d" },
@@ -21,15 +22,14 @@ return {
 			end,
 		})
 
-		vim.keymap.set(
-			"n",
+		map.nmap(
 			"<leader>lf",
 			"mF:%!eslint_d --stdin --fix-to-stdout --stdin-filename %<CR>`F | :w<CR>",
-			{ desc = "Fix current file" }
+			"Fix current file"
 		)
 
-		vim.keymap.set("n", "<leader>l", function()
+		map.nmap("<leader>l", function()
 			lint.try_lint()
-		end, { desc = "Trigger linting for current file" })
+		end, "Trigger linting for current file")
 	end,
 }

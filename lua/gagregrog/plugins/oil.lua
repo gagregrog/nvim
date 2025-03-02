@@ -3,6 +3,7 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		local oil = require("oil")
+		local map = require("gagregrog/core/map")
 
 		oil.setup({
 			skip_confirm_for_simple_edits = true,
@@ -28,7 +29,7 @@ return {
 				end,
 			},
 		})
-		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+		map.nmap("-", "<CMD>Oil<CR>", "Open parent directory")
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "OilEnter",
 			callback = vim.schedule_wrap(function(args)

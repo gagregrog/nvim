@@ -11,11 +11,10 @@ return {
 		"axkirillov/easypick.nvim",
 	},
 	config = function()
-		local keymap = vim.keymap
 		local telescope = require("telescope")
-		local config = require("telescope.config")
 		local actions = require("telescope.actions")
 		local easypick = require("easypick")
+		local map = require("gagregrog/core/map")
 
 		local get_default_branch = "git rev-parse --symbolic-full-name refs/remotes/origin/HEAD | sed 's!.*/!!'"
 		local base_branch = vim.fn.system(get_default_branch) or "main"
@@ -74,33 +73,18 @@ return {
 		telescope.load_extension("media_files")
 
 		-- set keymaps
-		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find files in cwd" })
-		-- keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "Find recent files (all directories)" })
-		keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Find within open buffers" })
-		keymap.set("n", "<leader>fm", "<cmd>Telescope media_files<CR>", { desc = "Find image files in cwd" })
-		keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<CR>", { desc = "Find string in cwd" })
-		keymap.set("n", "<leader>fr", "<cmd>Telescope resume<CR>", { desc = "Resume the last search" })
-		keymap.set(
-			"n",
-			"<leader>fS",
-			"<cmd>Telescope current_buffer_fuzzy_find<CR>",
-			{ desc = "Find string in current buffer" }
-		)
-		keymap.set(
-			"n",
-			"<leader>fw",
-			"<cmd>Telescope grep_string<CR>",
-			{ desc = "Find word under current cursor position" }
-		)
-		keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Find help documentation by keyword" })
-		keymap.set("n", "<leader>fc", "<cmd>Telescope commands<CR>", { desc = "Find vim commands to run" })
-		keymap.set(
-			"n",
-			"<leader>fv",
-			"<cmd>Telescope treesitter<CR>",
-			{ desc = "List all function names and variables" }
-		)
-		keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "List all key bindings" })
-		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+		map.nmap("<leader>ff", "<cmd>Telescope find_files<CR>", "Find files in cwd")
+		-- map.nmap("<leader>fr", "<cmd>Telescope oldfiles<CR>", "Find recent files (all directories)")
+		map.nmap("<leader>fb", "<cmd>Telescope buffers<CR>", "Find within open buffers")
+		map.nmap("<leader>fm", "<cmd>Telescope media_files<CR>", "Find image files in cwd")
+		map.nmap("<leader>fs", "<cmd>Telescope live_grep<CR>", "Find string in cwd")
+		map.nmap("<leader>fr", "<cmd>Telescope resume<CR>", "Resume the last search")
+		map.nmap("<leader>fS", "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find string in current buffer")
+		map.nmap("<leader>fw", "<cmd>Telescope grep_string<CR>", "Find word under current cursor position")
+		map.nmap("<leader>fh", "<cmd>Telescope help_tags<CR>", "Find help documentation by keyword")
+		map.nmap("<leader>fc", "<cmd>Telescope commands<CR>", "Find vim commands to run")
+		map.nmap("<leader>fv", "<cmd>Telescope treesitter<CR>", "List all function names and variables")
+		map.nmap("<leader>fk", "<cmd>Telescope keymaps<CR>", "List all key bindings")
+		map.nmap("<leader>ft", "<cmd>TodoTelescope<cr>", "Find todos")
 	end,
 }

@@ -1,22 +1,22 @@
-local keymap = vim.keymap
+local map = require("gagregrog/core/map")
 
 -- leader key
 vim.g.mapleader = " " -- set the leader key
 
-keymap.set("n", "<leader>-", ":nohl<CR>", { desc = "Clear search highlights" })
-keymap.set("n", "<leader>p", ":e #<CR>", { desc = "Jump to the previous buffer" })
-keymap.set("n", "<leader> ", "<cmd>w<CR>", { desc = "Write the current buffer" })
-keymap.set("n", "<leader>W", "<cmd>noa w<CR>", { desc = "Write the current buffer without formatting" })
-keymap.set("n", "QQ", ":q<CR>", { noremap = true, silent = true, desc = "Close the current buffer" })
-keymap.set("n", "yp", "yyp", { desc = "Duplicate line" })
+map.nmap("<leader>ch", ":nohl<CR>", "Clear search highlights")
+map.nmap("<leader>p", ":e #<CR>", "Jump to the previous buffer")
+map.nmap("<leader> ", "<cmd>w<CR>", "Write the current buffer")
+map.nmap("<leader>W", "<cmd>noa w<CR>", "Write the current buffer without formatting")
+map.nmap("QQ", ":q<CR>", "Close the current buffer")
+map.nmap("yp", "yyp", "Duplicate line")
 
 -- split management
-keymap.set("n", "<leader>s|", "<C-w>v", { desc = "Split window vertically" })
-keymap.set("n", "<leader>s-", "<C-w>s", { desc = "Split window horizontally" })
-keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
-keymap.set("n", "<leader>sc", "<cmd>close<CR>", { desc = "Close current split" })
-keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
+map.nmap("<leader>s|", "<C-w>v", "Split window vertically")
+map.nmap("<leader>s-", "<C-w>s", "Split window horizontally")
+map.nmap("<leader>se", "<C-w>=", "Make splits equal size")
+map.nmap("<leader>sc", "<cmd>close<CR>", "Close current split")
+map.nmap("<leader>sx", "<cmd>close<CR>", "Close current split")
 
 -- increment/decrement
-keymap.set("n", "<A-a>", "<C-a>", { desc = "Increment number under cursor" })
-keymap.set("n", "<A-r>", "<C-x>", { desc = "Decrement number under cursor" })
+map.nmap("<A-a>", "<C-a>", "Increment number under cursor")
+map.nmap("<A-r>", "<C-x>", "Decrement number under cursor")
