@@ -1,6 +1,7 @@
 return {
 	"folke/noice.nvim",
 	config = function()
+		vim.keymap.set("n", "<leader>-", ":Noice dismiss<CR>", { desc = "Clear all messages" })
 		-- see additional configuration in lua/gagregrog/plugins/lualine.lua
 		require("noice").setup({
 			lsp = {

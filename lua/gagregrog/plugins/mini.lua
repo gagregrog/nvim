@@ -21,7 +21,40 @@ return {
 			},
 		})
 
+		-- mini.pairs neigh_pattern is checked against the two characters on either
+		-- side of the cursor, so here we're requiring whitespace on each side in order
+		-- to match
+		local no_neighbor = "[%s][%s]"
 		-- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-pairs.md
-		require("mini.pairs").setup() -- auto pairs for quotes/brackets
+		require("mini.pairs").setup({
+			mappings = {
+				["("] = { action = "open", pair = "()", neigh_pattern = no_neighbor },
+				["["] = { action = "open", pair = "[]", neigh_pattern = no_neighbor },
+				["{"] = { action = "open", pair = "{}", neigh_pattern = no_neighbor },
+
+				[")"] = { action = "close", pair = "()", neigh_pattern = no_neighbor },
+				["]"] = { action = "close", pair = "[]", neigh_pattern = no_neighbor },
+				["}"] = { action = "close", pair = "{}", neigh_pattern = no_neighbor },
+
+				['"'] = {
+					action = "closeopen",
+					pair = '""',
+					neigh_pattern = no_neighbor,
+					register = { cr = false },
+				},
+				["'"] = {
+					action = "closeopen",
+					pair = "''",
+					neigh_pattern = no_neighbor,
+					register = { cr = false },
+				},
+				["`"] = {
+					action = "closeopen",
+					pair = "``",
+					neigh_pattern = no_neighbor,
+					register = { cr = false },
+				},
+			},
+		}) -- auto pairs for quotes/brackets
 	end,
 }
