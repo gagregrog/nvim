@@ -3,7 +3,7 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local lint = require("lint")
-		local map = require("gagregrog/core/map")
+		local map = require("gagregrog.core.keymap")
 
 		lint.linters_by_ft = {
 			javascript = { "eslint_d" },

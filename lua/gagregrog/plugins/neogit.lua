@@ -14,7 +14,7 @@ return {
 				},
 			},
 		})
-		local map = require("gagregrog/core/map")
+		local map = require("gagregrog.core.keymap")
 
 		-- Neogit commands
 		map.nmap("<leader>gg", "<cmd>Neogit<CR>", "Open Neogit")

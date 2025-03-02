@@ -4,7 +4,7 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
 		local todo_comments = require("todo-comments")
-		local map = require("gagregrog/core/map")
+		local map = require("gagregrog.core.keymap")
 
 		map.nmap("]t", function()
 			todo_comments.jump_next()

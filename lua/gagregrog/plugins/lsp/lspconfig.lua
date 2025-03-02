@@ -10,7 +10,7 @@ return {
 		local lspconfig = require("lspconfig")
 		local mason_lspconfig = require("mason-lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-		local map = require("gagregrog/core/map")
+		local map = require("gagregrog.core.keymap")
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -30,7 +30,7 @@ return {
 
 				map.nmap("gt", "<cmd>Telescope lsp_type_definitions<CR>", "Show LSP type definitions", opts) -- show lsp type definitions
 
-				map.map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "See available code actions", opts) -- see available code actions, in visual mode will apply to selection
+				map.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "See available code actions", opts) -- see available code actions, in visual mode will apply to selection
 
 				map.nmap("<leader>rn", vim.lsp.buf.rename, "Smart rename", opts) -- smart rename
 

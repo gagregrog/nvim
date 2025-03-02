@@ -1,7 +1,7 @@
 return {
 	"rmagatti/auto-session",
 	config = function()
-		local map = require("gagregrog/core/map")
+		local map = require("gagregrog.core.keymap")
 		local auto_session = require("auto-session")
 		auto_session.setup({
 			auto_restore = false,

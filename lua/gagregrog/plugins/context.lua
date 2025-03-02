@@ -1,7 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter-context",
 	config = function()
-		local map = require("gagregrog/core/map")
+		local map = require("gagregrog.core.keymap")
 
 		require("treesitter-context").setup({
 			max_lines = 4,

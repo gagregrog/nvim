@@ -3,7 +3,7 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		local oil = require("oil")
-		local map = require("gagregrog/core/map")
+		local map = require("gagregrog.core.keymap")
 
 		oil.setup({
 			skip_confirm_for_simple_edits = true,

@@ -1,4 +1,4 @@
-local map = require("gagregrog/core/map")
+local map = require("gagregrog.core.keymap")
 
 -- leader key
 vim.g.mapleader = " " -- set the leader key

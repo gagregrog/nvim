@@ -5,7 +5,7 @@ return {
 		current_line_blame = true, -- show line blame by default
 		on_attach = function(bufnr)
 			local gs = package.loaded.gitsigns
-			local map = require("gagregrog/core/map")
+			local map = require("gagregrog.core.keymap")
 			local opts = { buffer = bufnr }
 
 			-- Navigation
@@ -42,7 +42,7 @@ return {
 			map.nmap("<leader>gv", gs.setqflist, "Set changes to quickfix list", opts)
 
 			-- Text object
-			map.map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk", opts)
+			map.set({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk", opts)
 		end,
 	},
 }

@@ -6,7 +6,7 @@ return {
 	},
 	config = function()
 		local substitute = require("substitute")
-		local map = require("gagregrog/core/map")
+		local map = require("gagregrog.core.keymap")
 
 		substitute.setup({
 			preserve_cursor_position = false,

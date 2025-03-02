@@ -3,7 +3,7 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local conform = require("conform")
-		local map = require("gagregrog/core/map")
+		local map = require("gagregrog.core.keymap")
 
 		conform.setup({
 			formatters_by_ft = {
@@ -29,7 +29,7 @@ return {
 			},
 		})
 
-		map.map({ "n", "v" }, "<leader>mp", function()
+		map.set({ "n", "v" }, "<leader>mp", function()
 			conform.format({
 				lsp_fallback = true,
 				async = false,

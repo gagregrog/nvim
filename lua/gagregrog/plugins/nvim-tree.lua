@@ -3,7 +3,7 @@ return {
 	dependencies = "nvim-tree/nvim-web-devicons",
 	config = function()
 		local nvimtree = require("nvim-tree")
-		local map = require("gagregrog/core/map")
+		local map = require("gagregrog.core.keymap")
 
 		-- recommended settings from nvim-tree documentation
 		vim.g.loaded_netrw = 1

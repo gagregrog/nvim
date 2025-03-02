@@ -1,7 +1,7 @@
 return {
 	"alexghergh/nvim-tmux-navigation", -- tmux & split window navigation
 	config = function()
-		local map = require("gagregrog/core/map")
+		local map = require("gagregrog.core.keymap")
 		local vtm = require("nvim-tmux-navigation")
 		vtm.setup({
 			disable_when_zoomed = true,

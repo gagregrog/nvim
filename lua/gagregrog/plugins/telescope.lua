@@ -14,7 +14,7 @@ return {
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
 		local easypick = require("easypick")
-		local map = require("gagregrog/core/map")
+		local map = require("gagregrog.core.keymap")
 
 		local get_default_branch = "git rev-parse --symbolic-full-name refs/remotes/origin/HEAD | sed 's!.*/!!'"
 		local base_branch = vim.fn.system(get_default_branch) or "main"
