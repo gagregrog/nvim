@@ -42,18 +42,13 @@ return {
 				find_files = {
 					hidden = true,
 				},
-				buffers = {
-					initial_mode = "normal",
-				},
 				resume = {
-					initial_mode = "normal",
-				},
-				grep_string = {
 					initial_mode = "normal",
 				},
 			},
 			defaults = {
-				path_display = { "smart" },
+				path_display = { "absolute" },
+				wrap_results = true,
 				mappings = {
 					i = { -- keymappings while in insert mode
 						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
