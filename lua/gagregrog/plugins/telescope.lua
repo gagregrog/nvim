@@ -49,6 +49,10 @@ return {
 			defaults = {
 				path_display = { "absolute" },
 				wrap_results = true,
+				file_ignore_patterns = {
+					"^.git/",
+					"^node_modules/",
+				},
 				mappings = {
 					i = { -- keymappings while in insert mode
 						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
