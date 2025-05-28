@@ -36,6 +36,8 @@ return {
 				"ts_ls",
 				"vimls",
 			},
+			automatic_enable = false,
+			automatic_installation = true,
 		})
 
 		mason_tool_installer.setup({
