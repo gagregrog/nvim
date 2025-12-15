@@ -8,7 +8,6 @@ return {
 		"williamboman/mason.nvim",
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local keymap = require("gagregrog.core.keymap")
 
@@ -60,41 +59,21 @@ return {
 
 		-- Configure LSP servers
 
-		-- Define on_attach function
-		local on_attach = function(_, bufnr)
-			local opts = { buffer = bufnr }
-
-			-- set keybinds
-			keymap.nmap("gR", "<cmd>Telescope lsp_references<CR>", "Show LSP references", opts) -- show definition, references
-			keymap.nmap("gD", vim.lsp.buf.declaration, "Go to declaration", opts) -- go to declaration
-			keymap.nmap("gd", "<cmd>Telescope lsp_definitions<CR>", "Show LSP definitions", opts) -- show lsp definitions
-			keymap.nmap("gi", "<cmd>Telescope lsp_implementations<CR>", "Show LSP implementations", opts) -- show lsp implementations
-			keymap.nmap("gt", "<cmd>Telescope lsp_type_definitions<CR>", "Show LSP type definitions", opts) -- show lsp type definitions
-			keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "See available code actions", opts) -- see available code actions, in visual mode will apply to selection
-			keymap.nmap("<leader>rn", vim.lsp.buf.rename, "Smart rename", opts) -- smart rename
-			keymap.nmap("<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", "Show buffer diagnostics", opts) -- show  diagnostics for file
-			keymap.nmap("<leader>d", vim.diagnostic.open_float, "Show line diagnostics", opts) -- show diagnostics for line
-			keymap.nmap("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic", opts) -- jump to previous diagnostic in buffer
-			keymap.nmap("]d", vim.diagnostic.goto_next, "Go to next diagnostic", opts) -- jump to next diagnostic in buffer
-			keymap.nmap("K", vim.lsp.buf.hover, "Show documentation for what is under cursor", opts) -- show documentation for what is under cursor
-			keymap.nmap("<leader>rs", ":LspRestart<CR>", "Restart LSP", opts) -- mapping to restart lsp if necessary
-		end
-
 		-- typescript
-		lspconfig["ts_ls"].setup({
+		vim.lsp.config("ts_ls", {
 			capabilities = capabilities,
-			on_attach = on_attach,
-			init_options = {
-				preferences = {
-					importModuleSpecifierPreference = "non-relative",
+			settings = {
+				init_options = {
+					preferences = {
+						importModuleSpecifierPreference = "non-relative",
+					},
 				},
 			},
 		})
 
 		-- emmet
-		lspconfig["emmet_ls"].setup({
+		vim.lsp.config("emmet_ls", {
 			capabilities = capabilities,
-			on_attach = on_attach,
 			filetypes = {
 				"html",
 				"typescriptreact",
@@ -108,16 +87,14 @@ return {
 		})
 
 		-- graphql
-		lspconfig["graphql"].setup({
+		vim.lsp.config("graphql", {
 			capabilities = capabilities,
-			on_attach = on_attach,
 			filetypes = { "graphql", "gql", "typescriptreact", "javascriptreact" },
 		})
 
 		-- lua
-		lspconfig["lua_ls"].setup({
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
-			on_attach = on_attach,
 			settings = {
 				Lua = {
 					-- make the language server recognize "vim" global
@@ -141,10 +118,22 @@ return {
 		}
 
 		for _, server in ipairs(servers) do
-			lspconfig[server].setup({
+			vim.lsp.config(server, {
 				capabilities = capabilities,
-				on_attach = on_attach,
 			})
 		end
+
+		-- Enable all configured servers
+		vim.lsp.enable({
+			"ts_ls",
+			"emmet_ls",
+			"graphql",
+			"lua_ls",
+			"html",
+			"cssls",
+			"tailwindcss",
+			"prismals",
+			"gopls",
+		})
 	end,
 }
