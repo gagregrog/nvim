@@ -40,6 +40,8 @@ return {
 							{ find = "%d+ lines >ed" },
 							{ find = "%d+ lines <ed" },
 							{ find = "%d+ lines filtered" },
+							{ find = "position_encoding param .*" },
+							{ find = "vim.lsp.util.jump_to_location is deprecated. .*" },
 						},
 					},
 					opts = { skip = true },
