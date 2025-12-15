@@ -1,6 +1,7 @@
 return {
 	"rmagatti/goto-preview",
 	event = "BufEnter",
+	dependencies = 'rmagatti/logger.nvim',
 	config = function()
 		require("goto-preview").setup({
 			width = 120, -- Width of the floating window

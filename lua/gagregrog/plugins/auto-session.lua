@@ -11,7 +11,7 @@ return {
 		vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 		-- the extra <CR> invokes the command immediately, rather than warning you about the replaced buffers
-		keymap.nmap("<leader>wr", "<cmd>SessionRestore<CR><CR>", "Restore session for cwd")
-		keymap.nmap("<leader>ws", "<cmd>SessionSave<CR>", "Save session for auto session root dir")
+		keymap.nmap("<leader>wr", "<cmd>AutoSession restore<CR><CR>", "Restore session for cwd")
+		keymap.nmap("<leader>ws", "<cmd>AutoSession save<CR>", "Save session for auto session root dir")
 	end,
 }
