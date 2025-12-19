@@ -62,11 +62,9 @@ return {
 		-- typescript
 		vim.lsp.config("ts_ls", {
 			capabilities = capabilities,
-			settings = {
-				init_options = {
-					preferences = {
-						importModuleSpecifierPreference = "non-relative",
-					},
+			init_options = {
+				preferences = {
+					importModuleSpecifierPreference = "non-relative",
 				},
 			},
 		})
