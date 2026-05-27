@@ -31,7 +31,7 @@ return {
 		dependencies = { "tpope/vim-dadbod" },
 		cmd = { "DBUI", "DBUIToggle", "DBUIAddConnection", "DBUIFindBuffer" },
 		keys = {
-			{ "<leader>db", "<cmd>DBUI<cr>", desc = "DBUI: toggle sidebar" },
+			{ "<leader>db", "<cmd>tab DBUI<cr>", desc = "DBUI: open in new tab" },
 		},
 		init = function()
 			vim.g.db_ui_use_nerd_fonts = 1
