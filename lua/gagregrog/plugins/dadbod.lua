@@ -2,15 +2,17 @@ return {
 	{
 		-- Eager so the adapter's autoload file and health.lua are always on rtp.
 		-- Nothing runs at load time — only files are added to the runtimepath.
-		dir = vim.fn.expand("~/dev/vim-dadbod-cloudspanner"),
-		name = "vim-dadbod-cloudspanner",
+		"gagregrog/vim-dadbod-cloudspanner",
+		-- Flip to local dev: uncomment `dev = true` and restart nvim (or
+		-- `:Lazy reload vim-dadbod-cloudspanner`). Lazy will load the copy at
+		-- ~/dev/vim-dadbod-cloudspanner (path configured in ../lazy.lua).
+		-- dev = true,
 		lazy = false,
 		build = function()
 			require("dadbod-cloudspanner.install").install()
 		end,
-		-- Belt-and-suspenders: lazy's `build` is skipped for local `dir` plugins
-		-- on first registration, so also check on load. Silent if already
-		-- installed; auto-installs otherwise.
+		-- Belt-and-suspenders for local-dev `dev = true` setups where lazy
+		-- skips `build`. Silent if spanner-cli is already installed.
 		config = function()
 			require("dadbod-cloudspanner.install").ensure()
 		end,

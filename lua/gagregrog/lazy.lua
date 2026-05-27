@@ -22,4 +22,8 @@ require("lazy").setup({
 	change_detection = {
 		notify = false, -- do not show the alert indicating that the change was detected when saved
 	},
+	-- Search path for plugins that opt into local dev with `dev = true`
+	-- Inert until a spec opts in; lazy then
+	-- loads <path>/<plugin-name> instead of cloning from GitHub.
+	dev = { path = vim.fn.expand("~/dev") },
 })
