@@ -56,6 +56,7 @@ return {
 							-- so filetype detection and the LSP file watcher both noise.
 							{ find = "No matching autocommands: filetypedetect" },
 							{ find = "watch%.watch: ENOENT" },
+							{ find = "Content is not an image" },
 						},
 					},
 					opts = { skip = true },
