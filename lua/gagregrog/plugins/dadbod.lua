@@ -20,6 +20,11 @@ return {
 		cmd = { "DB" },
 	},
 	{
+		"kristijanhusak/vim-dadbod-completion",
+		ft = { "sql", "mysql", "plsql", "dbout" },
+		dependencies = { "tpope/vim-dadbod" },
+	},
+	{
 		"kristijanhusak/vim-dadbod-ui",
 		dependencies = { "tpope/vim-dadbod" },
 		cmd = { "DBUI", "DBUIToggle", "DBUIAddConnection", "DBUIFindBuffer" },

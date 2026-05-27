@@ -52,5 +52,16 @@ return {
 				}),
 			},
 		})
+
+		-- SQL buffers (incl. dadbod-ui's query/dbout buffers) get the
+		-- vim-dadbod-completion source first, which introspects the active
+		-- connection for table/column names.
+		cmp.setup.filetype({ "sql", "mysql", "plsql", "dbout" }, {
+			sources = cmp.config.sources({
+				{ name = "vim-dadbod-completion" },
+				{ name = "buffer" },
+				{ name = "luasnip" },
+			}),
+		})
 	end,
 }
