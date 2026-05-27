@@ -42,6 +42,10 @@ return {
 							{ find = "%d+ lines filtered" },
 							{ find = "position_encoding param .*" },
 							{ find = "vim.lsp.util.jump_to_location is deprecated. .*" },
+							-- octo.nvim: synthetic buffers don't have on-disk paths,
+							-- so filetype detection and the LSP file watcher both noise.
+							{ find = "No matching autocommands: filetypedetect" },
+							{ find = "watch%.watch: ENOENT" },
 						},
 					},
 					opts = { skip = true },

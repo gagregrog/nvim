@@ -4,6 +4,7 @@ wk.add({
 	{ "<leader>e", group = "Explorer" },
 	{ "<leader>f", group = "Fuzzy Find" },
 	{ "<leader>g", group = "Git" },
+	{ "<leader>go", group = "Octo (PRs)" },
 	{ "<leader>n", group = "Navigate" },
 	{ "<leader>s", group = "Split" },
 	{ "<leader>t", group = "Tab" },

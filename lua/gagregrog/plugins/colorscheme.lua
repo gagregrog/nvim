@@ -73,6 +73,34 @@ return {
 				--   delete = "#914c54",
 				-- },
 			end,
+			on_highlights = function(hl, c)
+				-- Diff highlights tuned for VSCode-like PR review feel:
+				-- near-invisible line backgrounds, moderate word-level highlights
+				-- for added/deleted text in octo review diffs.
+				local add_bg = "#081a10" -- very dim green line bg
+				local add_word = "#1f6b3a" -- green word bg (added text)
+				local delete_bg = "#1e0c10" -- very dim red line bg
+				local delete_word = "#7a2842" -- red word bg (deleted text)
+				local change_bg = "#11203a" -- dim blue line bg
+
+				-- Built-in diff groups (vimdiff)
+				hl.DiffAdd = { bg = add_bg }
+				hl.DiffChange = { bg = change_bg }
+				hl.DiffDelete = { bg = delete_bg }
+				hl.DiffText = { bg = change_bg }
+
+				-- Diffview groups
+				hl.DiffviewDiffAdd = { bg = add_bg }
+				hl.DiffviewDiffChange = { bg = change_bg }
+				hl.DiffviewDiffDelete = { bg = delete_bg }
+				hl.DiffviewDiffText = { bg = change_bg }
+				hl.DiffviewDiffAddAsDelete = { bg = delete_bg }
+				hl.DiffviewDiffDeleteDim = { fg = c.fg_gutter, bg = c.none }
+
+				-- Octo word-level highlights (added/deleted text within review diffs)
+				hl.OctoReviewDiffAddText = { bg = add_word, fg = "#ffffff" }
+				hl.OctoReviewDiffDeleteText = { bg = delete_word, fg = "#ffffff" }
+			end,
 		})
 
 		vim.cmd("colorscheme tokyonight")

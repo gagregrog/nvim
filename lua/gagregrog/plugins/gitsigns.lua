@@ -41,6 +41,15 @@ return {
 
 			keymap.nmap("<leader>gv", gs.setqflist, "Set changes to quickfix list", opts)
 
+			-- Point gitsigns at the current branch's PR base so the gutter
+			-- highlights what the PR changed. Useful after `gf` out of an
+			-- octo review into the real file.
+			local pr = require("gagregrog.core.pr")
+			keymap.nmap("<leader>gob", function()
+				pr.sync_gitsigns_base({ force_notify = true })
+			end, "Gitsigns base → PR base", opts)
+			keymap.nmap("<leader>goB", pr.reset_gitsigns_base, "Gitsigns base reset", opts)
+
 			-- Text object
 			keymap.set({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk", opts)
 		end,
