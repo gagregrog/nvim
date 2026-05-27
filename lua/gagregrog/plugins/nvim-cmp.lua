@@ -53,15 +53,23 @@ return {
 			},
 		})
 
-		-- SQL buffers (incl. dadbod-ui's query/dbout buffers) get the
-		-- vim-dadbod-completion source first, which introspects the active
-		-- connection for table/column names.
+		-- SQL buffers (incl. dadbod-ui's query/dbout buffers): try the
+		-- cloudspanner-aware source first; fall back to vim-dadbod-completion
+		-- for non-cloudspanner connections.
 		cmp.setup.filetype({ "sql", "mysql", "plsql", "dbout" }, {
-			sources = cmp.config.sources({
-				{ name = "vim-dadbod-completion" },
-				{ name = "buffer" },
-				{ name = "luasnip" },
-			}),
+			sources = cmp.config.sources(
+				{ { name = "vim-dadbod-cloudspanner-completion" } }, -- priority group 1
+				{ -- group 2: only used if group 1 returns nothing
+					{ name = "vim-dadbod-completion" },
+					{ name = "buffer" },
+					{ name = "luasnip" },
+				}
+			),
 		})
+
+		-- Register the cloudspanner cmp source (shipped by vim-dadbod-cloudspanner).
+		pcall(function()
+			require("vim_dadbod_cloudspanner_completion").setup()
+		end)
 	end,
 }
