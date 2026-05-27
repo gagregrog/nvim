@@ -24,6 +24,16 @@ return {
 			},
 
 			routes = {
+				-- vim-dadbod: query confirmations
+				-- cover the result buffer when shown in the messages view.
+				{
+					filter = { event = "msg_show", find = "^DB: " },
+					view = "mini",
+				},
+				{
+					filter = { event = "msg_show", find = "^%[DBUI%]" },
+					view = "mini",
+				},
 				{
 					filter = {
 						any = {
