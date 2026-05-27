@@ -2,6 +2,9 @@ return {
   "yetone/avante.nvim",
   event = "VeryLazy",
   version = false, -- Never set this value to "*"! Never!
+  keys = {
+    { "<leader>am", "<cmd>AvanteSwitchProvider<cr>", desc = "Avante: switch model/provider", silent = true },
+  },
   ---@module 'avante'
   ---@type avante.Config
   opts = {
@@ -9,16 +12,28 @@ return {
     -- this file can contain specific instructions for your project
     -- instructions_file = "avante.md",
     -- for example
-    provider = "claude",
+    provider = "claude", -- default; switch with :AvanteSwitchProvider <name>
     providers = {
       claude = {
         endpoint = "https://api.anthropic.com",
-        model = "claude-sonnet-4-5-20250929",
-        timeout = 30000, -- Timeout in milliseconds
-          extra_request_body = {
-            temperature = 0.75,
-            max_tokens = 20480,
-          },
+        model = "claude-sonnet-4-6",
+        timeout = 30000,
+        extra_request_body = {
+          temperature = 0.75,
+          max_tokens = 20480,
+        },
+      },
+      ["claude-opus"] = {
+        __inherited_from = "claude",
+        model = "claude-opus-4-7",
+      },
+      ["claude-opus-4-6"] = {
+        __inherited_from = "claude",
+        model = "claude-opus-4-6",
+      },
+      ["claude-haiku"] = {
+        __inherited_from = "claude",
+        model = "claude-haiku-4-5-20251001",
       },
     },
     input = {
