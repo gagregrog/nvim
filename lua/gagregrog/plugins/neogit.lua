@@ -27,6 +27,8 @@ return {
 			return res.code == 0 and "main" or "master"
 		end
 		-- https://github.com/sindrets/diffview.nvim/blob/main/USAGE.md
+		keymap.nmap("<leader>gd", "<cmd>DiffviewOpen<CR>", "Diff working tree (unstaged)")
+		keymap.nmap("<leader>gD", "<cmd>DiffviewOpen HEAD<CR>", "Diff vs HEAD (incl. staged)")
 		keymap.nmap("<leader>gP", "<cmd>DiffviewOpen origin/HEAD...HEAD<CR>", "Review PR")
 		keymap.nmap(
 			"<leader>gC",
@@ -61,7 +63,13 @@ return {
 				-- For more info, see |diffview-config-view.x.layout|.
 				default = {
 					-- Config for changed files, and staged files in diff views.
-					layout = "diff2_vertical",
+					layout = "diff2_horizontal",
+				},
+			},
+			file_panel = {
+				win_config = {
+					position = "bottom",
+					height = 10,
 				},
 			},
 		})
