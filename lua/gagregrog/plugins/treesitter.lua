@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	branch = "master",
 	event = { "BufReadPre", "BufNewFile" }, -- lazy load on these events
 	build = ":TSUpdate", -- this executes any time this plugin is installed/updated
 	dependencies = {
