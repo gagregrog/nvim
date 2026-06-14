@@ -117,17 +117,9 @@ return {
 			"cssls",
 			"tailwindcss",
 			"prismals",
-			"gopls",
 		}
 
-		for _, server in ipairs(servers) do
-			vim.lsp.config(server, {
-				capabilities = capabilities,
-			})
-		end
-
-		-- Enable all configured servers
-		vim.lsp.enable({
+		local enabled = {
 			"ts_ls",
 			"emmet_ls",
 			"graphql",
@@ -136,7 +128,20 @@ return {
 			"cssls",
 			"tailwindcss",
 			"prismals",
-			"gopls",
-		})
+		}
+
+		if vim.fn.executable("go") == 1 then
+			table.insert(servers, "gopls")
+			table.insert(enabled, "gopls")
+		end
+
+		for _, server in ipairs(servers) do
+			vim.lsp.config(server, {
+				capabilities = capabilities,
+			})
+		end
+
+		-- Enable all configured servers
+		vim.lsp.enable(enabled)
 	end,
 }

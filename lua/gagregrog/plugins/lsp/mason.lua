@@ -19,25 +19,28 @@ return {
 			},
 		})
 
+		local ensure_installed = {
+			"bashls",
+			-- "clangd",
+			"cssls",
+			"dockerls",
+			"emmet_ls",
+			"graphql",
+			"html",
+			"lua_ls",
+			"prismals",
+			"pyright",
+			"tailwindcss",
+			"ts_ls",
+			"vimls",
+		}
+
+		if vim.fn.executable("go") == 1 then
+			table.insert(ensure_installed, "gopls")
+		end
+
 		mason_lspconfig.setup({
-			-- list of servers for mason to install
-			ensure_installed = {
-				"bashls",
-				-- "clangd",
-				"cmake",
-				"cssls",
-				"dockerls",
-				"emmet_ls",
-				"gopls",
-				"graphql",
-				"html",
-				"lua_ls",
-				"prismals",
-				"pyright",
-				"tailwindcss",
-				"ts_ls",
-				"vimls",
-			},
+			ensure_installed = ensure_installed,
 			automatic_enable = false,
 			automatic_installation = true,
 		})
