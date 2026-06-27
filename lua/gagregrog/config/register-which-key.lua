@@ -6,6 +6,7 @@ wk.add({
 	{ "<leader>g", group = "Git" },
 	{ "<leader>go", group = "Octo (PRs)" },
 	{ "<leader>n", group = "Navigate" },
+	{ "<leader>o", group = "Obsidian" },
 	{ "<leader>s", group = "Split" },
 	{ "<leader>t", group = "Tab" },
 	{ "<leader>w", group = "Workspace" },
