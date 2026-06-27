@@ -1,4 +1,4 @@
-local vault_path = vim.fn.expand("~/.dotfiles/brain")
+local vault_path = vim.fn.expand("~/Documents/brain")
 
 return {
 	"obsidian-nvim/obsidian.nvim",
